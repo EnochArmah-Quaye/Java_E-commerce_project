@@ -1,6 +1,7 @@
 package com.ecom.productcatalog.config;
 
 import com.ecom.productcatalog.model.Category;
+import com.ecom.productcatalog.model.Product;
 import com.ecom.productcatalog.repository.CategoryRepository;
 import com.ecom.productcatalog.repository.ProductRepository;
 import org.springframework.boot.CommandLineRunner;
@@ -38,5 +39,18 @@ public class DataSeeder implements CommandLineRunner {
         categoryRepository.saveAll(Arrays.asList(electronics, clothing, home));
 
         //Create Products
+        Product phone = new Product();
+        phone.setName("SmartPhone");
+        phone.setDescription("Latest phone");
+        phone.setImageUrl("");
+        phone.setPrice(9999);
+        phone.setCategory(electronics);
+
+        Product laptop = new Product();
+        laptop.setName("Laptop");
+        laptop.setDescription("Ultra slim laptop");
+        laptop.setImageUrl("");
+        laptop.setPrice(99990);
+        laptop.setCategory(electronics);
     }
 }
