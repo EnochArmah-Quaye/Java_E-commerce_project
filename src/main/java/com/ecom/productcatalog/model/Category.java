@@ -1,10 +1,13 @@
 package com.ecom.productcatalog.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.Cascade;
 
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -18,6 +21,7 @@ public class Category {
     @OneToMany(mappedBy = "category",
                  cascade = CascadeType.ALL,
                   fetch = FetchType.LAZY)
-    private Set<Product> products;
+    @JsonManagedReference
+    private List<Product> products;
 
 }
